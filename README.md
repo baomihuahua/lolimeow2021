@@ -1,2 +1,10 @@
-# lolimeow2021
-wordpress主题-lolimeow 2021重构版
+# 欢迎使用 Lolimeow Wordpress主题
+
+**Lolimeow是原来的老版重构，更新了一些原来存在的BUG和UI的更新**
+
+也不知道说明什么，喜欢就用！！
+
+主要功能：该有的都有！！
+会员中心：有 （需要配合erphpdown插件使用，达到收费下载插件，会员中心功能都完整实现）
+
+具体查看博客文章了解详细 [点击查看](https://www.boxmoe.com/468.html "点击查看")
