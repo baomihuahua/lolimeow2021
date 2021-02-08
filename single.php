@@ -21,8 +21,9 @@
                     <span class="post-comment">
                       <i class="fa fa-comments-o"></i><?php echo get_comments_number( '0', '1', '%') ?></span>
                     <span class="category-meta">
-                      <a href="https://new.luoli.pub/category/uncategorized" title="查看《未分类》下的所有文章 " rel="category tag">
-                        <i class="fa fa-folder-o"></i>未分类</a>
+                     <?php $category = get_the_category();if($category[0]){ echo '
+                      <a href="'.get_category_link($category[0]->term_id ).'" title="查看《'.$category[0]->cat_name.'》下的所有文章 " rel="category tag" '. _post_target_blank().'>
+                        <i class="fa fa-folder-o"></i>'.$category[0]->cat_name.'</a>'; };?>
                     </span><?php edit_post_link( '['.__( '<span>编辑仅作者可见</span>', 'meowdata'). ']'); ?>
                   </div>
                 </div>

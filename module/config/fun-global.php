@@ -28,17 +28,16 @@ function boxmoe_favicon() {
 }
 //banner参数
 function boxmoe_banner() {
+	$banner_rand = get_boxmoe('banner_rand');	
+	if( !empty($banner_rand) ) {
 	$banner_no = get_boxmoe('banner_rand_n');
-	$temp_no = rand(1,$banner_no);
-	$banner_dir = 'style="background-image: url(\''.boxmoe_load_style().'/assets/images/banner/'.$temp_no.'.jpg\');" ';
-	if( get_boxmoe('banner_rand') ) {
-		echo $banner_dir ;
-	} else {
-	if( get_boxmoe('banneron') ) {echo  'style="background-image: url(\''.get_boxmoe('banner_url').'\');"';}
-	else {
-		echo  'style="background-image: url(\''.boxmoe_load_style().'/assets/images/banner/1.jpg\');"';
-	     }
-	       }
+	$temp_no = rand(1,$banner_no);		
+	$banner_dir = 'style="background-image: url(\''.boxmoe_load_style().'/assets/images/banner/'.$temp_no.'.jpg\');" ';}
+	else if	( get_boxmoe('banner_url') ) {
+	$banner_dir = 'style="background-image: url(\''.get_boxmoe('banner_url').'\');"';}	
+	else {	
+	$banner_dir = 'style="background-image: url(\''.boxmoe_load_style().'/assets/images/banner/1.jpg\');"';}		
+return  $banner_dir;
 }
 //导航&侧栏部分
 if (function_exists('register_nav_menus')) {
