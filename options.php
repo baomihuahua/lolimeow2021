@@ -498,7 +498,12 @@ function optionsframework_options() {
 	//	'type' => 'text',
 	//	'class' => 'hidden mini',
 	//	'std' => ''
+	//);
+	$options[] = array(
+		'name' => __( '会员中心信息面板Banner图', 'ui_boxmoe_com' ),
 		'id' => 'user_banner_src',
+		'desc' => __(' ', 'ui_boxmoe_com'),
+		'std' => $imagepath.'banner/1.jpg',
 		'type' => 'upload');
     $options[] = array(
 		'name' => __('注册会员支持中文', 'ui_boxmoe_com'),
