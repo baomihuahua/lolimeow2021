@@ -498,7 +498,8 @@ function optionsframework_options() {
 	//	'type' => 'text',
 	//	'class' => 'hidden mini',
 	//	'std' => ''
-	//);	
+		'id' => 'user_banner_src',
+		'type' => 'upload');
     $options[] = array(
 		'name' => __('注册会员支持中文', 'ui_boxmoe_com'),
 		'id' => 'sign_zhcn',
@@ -517,7 +518,7 @@ function optionsframework_options() {
 	);
 	$options[] = array(
 		'name' => __( '会员注册页面', 'ui_boxmoe_com' ),
-		'desc' => __( '选择前端会员注册页面，新建一个页面选择会员登录模板', 'ui_boxmoe_com' ),
+		'desc' => __( '选择前端会员注册页面，新建一个页面选择会员注册模板', 'ui_boxmoe_com' ),
 		'id' => 'users_reg',
 		'type' => 'select',
 		'class' => 'hidden',

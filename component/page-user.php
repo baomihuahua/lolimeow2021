@@ -266,7 +266,7 @@ function boxmoe_vip_pic() {
                   <div class="row">
                     <div class="col-lg-4 col-md-4">
                       <div class="user-header card card-profile">
-                        <div class="card-header bg-info" style="background-image: url('https://moguos.oss-cn-shenzhen.aliyuncs.com/boxmoe/assets/images/banner/8.jpg')">
+                        <div class="card-header bg-info" style="background-image: url('<?php echo get_boxmoe('user_banner_src')?>')">
                           <div class="card-avatar">
                             <a href="javascript:;">
                               <?php echo get_avatar( $user_info->user_email, 100,'','',array('class'=>array('rounded-circle'))); ?> </a>
