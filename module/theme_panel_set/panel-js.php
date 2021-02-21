@@ -47,7 +47,11 @@ jQuery(document).ready(function() {
 	}
 	jQuery('#open_author_info').click(function() {
   		jQuery('#section-authorinfo').fadeToggle(400);
-	});	
+	});
+
+	if (jQuery('#open_author_info:checked').val() !== undefined) {
+		jQuery('#section-authorinfo').show();
+	}	
     jQuery('#baidutuisong').click(function() {
   		jQuery('#section-baidutuisongkey').fadeToggle(400);
 	});
