@@ -136,7 +136,7 @@ if (!is_user_logged_in()) { get_header(); ?>
 
                             <div class="form-button">
 							<input type="hidden" name="csyor_reg" value="ok" />
-				            <input type="hidden" name="redirect_to" value="<?php echo $redirect_to; ?>"/>
+				            <input type="hidden" name="redirect_to" value="<?php get_user_url() ?>"/>
                             <button iname="wp-submit"  id="wp-submit"  tabindex="7" type="submit" class="ibtn">提交注册</button>
                             </div>
                         </form>
