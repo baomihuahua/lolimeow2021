@@ -693,7 +693,13 @@ function optionsframework_options() {
 		'id' => 'wpheader_on',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启 （移除feed WordPress版本号等等没用东西）', 'ui_boxmoe_com'),);	
+		'desc' => __('开启 （移除feed WordPress版本号等等没用东西，如果个别和插件有冲突报错可直接注释掉某行）', 'ui_boxmoe_com'),);	
+	$options[] = array(
+		'name' => __('移除头部feed', 'ui_boxmoe_com'),
+		'id' => 'feed_off',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启', 'ui_boxmoe_com'),);			
 	$options[] = array(
 		'name' => __('移除头部emoji表情的 dns-refresh 功能', 'ui_boxmoe_com'),
 		'id' => 'remove_dns_refresh',
@@ -736,23 +742,20 @@ function optionsframework_options() {
 		'type' => "checkbox",
 		'std' => false,
 		'desc' => __('开启', 'ui_boxmoe_com'),);	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 //==========================================================================================
+	$options[] = array(
+		'name' => __('其他拓展', 'ui_boxmoe_com'),
+		'desc' => __( '（主题未来自定义功能拓展区）', 'ui_boxmoe_com' ),
+		'type' => 'heading');
+//拓展区===================================================================================
 
 
+
+
+
+
+
+//拓展区结束=====================================================================================
 	return $options;
 }

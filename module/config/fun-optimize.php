@@ -6,7 +6,7 @@ if( get_boxmoe('gutenberg_off') ) {
 }
 
 if( get_boxmoe('wpheader_on') ) {
- //remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
+//remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
 remove_action( 'wp_head', 'index_rel_link' );//去除本页唯一链接信息
 remove_action('wp_head', 'parent_post_rel_link', 10, 0 );//清除前后文信息
 remove_action('wp_head', 'start_post_rel_link', 10, 0 );//清除前后文信息
@@ -20,21 +20,21 @@ remove_action( 'wp_head', 'wp_generator' ); //移除WordPress版本
 remove_action( 'wp_footer', 'wp_print_footer_scripts' );
 remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
 remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'feed_links', 2 ); //移除feed
-remove_action( 'wp_head', 'feed_links_extra', 3 ); //移除feed
 remove_action('wp_head','wlwmanifest_link');//移除head中的rel="wlwmanifest"
 remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
-remove_action( 'wp_head', 'wp_generator' ); //移除WordPress版本
 remove_action( 'wp_head', 'rel_canonical' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-remove_action( 'wp_head', 'locale_stylesheet' );
 add_action('widgets_init', 'my_remove_recent_comments_style');
 function my_remove_recent_comments_style() {
 global $wp_widget_factory;
 remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ,'recent_comments_style'));
 } 
-add_filter( 'emoji_svg_url', create_function( '', 'return false;' ) );//禁用emoji预解析
+}
+//移除feed
+if(get_boxmoe('feed_off')) {
+remove_action( 'wp_head', 'feed_links', 2 ); 
+remove_action( 'wp_head', 'feed_links_extra', 3 ); 
 }
 // 移除 Emoji
 if(get_boxmoe('emoji_off')) {

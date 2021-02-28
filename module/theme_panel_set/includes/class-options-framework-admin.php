@@ -109,23 +109,34 @@ class Options_Framework_Admin {
      * @since 1.7.0
      */
 	function add_custom_options_page() {
+	$menu = $this->menu_settings();
 
-		$menu = $this->menu_settings();
+	switch ($menu['mode']) {
 
-		// If you want a top level menu, see this Gist:
-		// https://gist.github.com/devinsays/884d6abe92857a329d99
-
-		// Code removed because it conflicts with .org theme check.
-
-		$this->options_screen = add_theme_page(
-            $menu['page_title'],
-            $menu['menu_title'],
-            $menu['capability'],
-            $menu['menu_slug'],
-            array( $this, 'options_page' )
-        );
-
+		case 'menu':
+		// http://codex.wordpress.org/Function_Reference/add_menu_page
+			$this->options_screen = add_menu_page(
+				$menu['page_title'],
+				$menu['menu_title'],
+				$menu['capability'],
+				$menu['menu_slug'],
+				array($this, 'options_page'),
+				$menu['icon_url'],
+				$menu['position']
+			);
+			break;
+		default:
+		// http://codex.wordpress.org/Function_Reference/add_submenu_page
+			$this->options_screen = add_submenu_page(
+				$menu['parent_slug'],
+				$menu['page_title'],
+				$menu['menu_title'],
+				$menu['capability'],
+				$menu['menu_slug'],
+				array($this, 'options_page'));
+			break;   
 	}
+}
 
 	/**
      * Loads the required stylesheets
@@ -220,6 +231,7 @@ class Options_Framework_Admin {
 			<?php $menu = $this->menu_settings(); ?>
 			<div class="boxmoe-opt-header">
 				<h2><?php echo esc_html( $menu['page_title'] ); ?><span><a href="https://www.boxmoe.com/468.html" target="_blank" rel="external nofollow" class="url themes-inf">主题日志</a> | <a href="https://jq.qq.com/?_wv=1027&amp;k=52f0L9P" target="_blank" rel="external nofollow" class="url themes-inf">主题Q群:24401689</a> </span></h2>
+				<input type="button" class="boxmoe-button" value="检测最新版本" id="versionss"><div id="showing" ></div>
 				<?php settings_errors( 'options-framework' ); ?>
 				<?php do_action( 'optionsframework_after' ); ?>
 			</div>			
