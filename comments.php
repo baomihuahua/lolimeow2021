@@ -10,6 +10,9 @@ foreach ( $comments as $comment ) {
 if ( !comments_open() ) return;
 date_default_timezone_set('PRC');
 $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:s')))/86400;
+if(!isset($user_ID)) {
+  $user_ID=null;
+}
 ?>
 <div class="col-md-10 col-lg-10 ml-auto mr-auto">
 <div id="comments" class="comments-area thw-sept"><?php if ( have_comments() ){?>
